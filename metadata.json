@@ -1,0 +1,6 @@
+{
+  "name": "One Outfit",
+  "description": "Premium men's fashion and clothing e-commerce store.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
