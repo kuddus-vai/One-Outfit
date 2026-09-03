@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Phone, X, Search, ChevronRight } from 'lucide-react';
+import { MessageCircle, Phone, X, Search, ChevronRight, Facebook } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export function SocialCommerceWidget() {
@@ -48,6 +48,25 @@ export function SocialCommerceWidget() {
 
           {/* Action Channels */}
           <div className="mt-4 space-y-2">
+            {/* Facebook */}
+            <a
+              href="https://www.facebook.com/OneOutfit1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-between p-3 rounded-xl bg-[#1877F2]/10 border border-[#1877F2]/30 hover:bg-[#1877F2]/20 transition-colors text-neutral-900 group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-[#1877F2] text-white flex items-center justify-center font-bold">
+                  <Facebook className="w-4 h-4" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-neutral-950">One Outfit on Facebook</p>
+                  <p className="text-[10px] text-neutral-500">facebook.com/OneOutfit1</p>
+                </div>
+              </div>
+              <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+
             {/* WhatsApp */}
             <a
               href="https://wa.me/8801700000000?text=Hi%20One%20Outfit,%20I%20need%20help%20with%20sizing%20and%20ordering"

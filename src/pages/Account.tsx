@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Package, Heart, MapPin, User as UserIcon, LogOut } from 'lucide-react';
+import { Package, Heart, MapPin, User as UserIcon, LogOut, Shield } from 'lucide-react';
+import { useAdmin } from '../context/AdminContext';
 
 export function Account() {
   const [activeTab, setActiveTab] = useState('orders');
+  const { isAdminLoggedIn, adminUser } = useAdmin();
 
   return (
     <div className="bg-gray-50 min-h-screen pb-24 pt-10">
@@ -30,7 +32,14 @@ export function Account() {
                 <UserIcon className="h-5 w-5" />
                 Profile
               </button>
-              <button className="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium rounded-md uppercase tracking-wide text-red-600 hover:bg-red-50 mt-8 border-t border-gray-100">
+              <Link
+                to="/admin"
+                className="flex items-center gap-3 w-full px-4 py-3 text-sm font-bold rounded-md uppercase tracking-wide bg-neutral-900 text-white hover:bg-black transition-colors mt-4"
+              >
+                <Shield className="h-5 w-5 text-emerald-400" />
+                <span>Admin Dashboard</span>
+              </Link>
+              <button className="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium rounded-md uppercase tracking-wide text-red-600 hover:bg-red-50 mt-4 border-t border-gray-100">
                 <LogOut className="h-5 w-5" />
                 Logout
               </button>

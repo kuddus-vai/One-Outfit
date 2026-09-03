@@ -40,3 +40,50 @@ export interface CartItem {
   size: string;
   quantity: number;
 }
+
+export interface OrderItem {
+  productId: string;
+  productName: string;
+  productImage: string;
+  size: string;
+  quantity: number;
+  price: number;
+  sku?: string;
+}
+
+export interface Order {
+  id: string;
+  orderNumber: string;
+  customerName: string;
+  customerPhone: string;
+  district: string;
+  address: string;
+  deliveryZone: 'inside' | 'outside';
+  deliveryFee: number;
+  subtotal: number;
+  total: number;
+  paymentMethod: 'COD' | 'bKash' | 'Nagad';
+  paymentStatus: 'Unpaid' | 'Paid';
+  status: 'Pending' | 'Confirmed' | 'Processing' | 'Shipped' | 'Delivered' | 'Cancelled';
+  items: OrderItem[];
+  createdAt: string;
+  notes?: string;
+}
+
+export interface Coupon {
+  id: string;
+  code: string;
+  type: 'percentage' | 'fixed';
+  value: number;
+  minOrder?: number;
+  isActive: boolean;
+  usedCount: number;
+  expiresAt?: string;
+}
+
+export interface AdminUser {
+  email: string;
+  role: 'admin' | 'super_admin';
+  name: string;
+  token?: string;
+}

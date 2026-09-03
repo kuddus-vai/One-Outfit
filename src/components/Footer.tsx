@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Check, ArrowRight, ShieldCheck, Truck } from 'lucide-react';
+import { Phone, Mail, MapPin, Check, ArrowRight, ShieldCheck, Truck, Facebook, Instagram } from 'lucide-react';
 
 export function Footer() {
   const [email, setEmail] = useState('');
@@ -92,6 +92,28 @@ export function Footer() {
                   support@oneoutfit.bd
                 </a>
               </div>
+            </div>
+
+            {/* Social Channels */}
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href="https://www.facebook.com/OneOutfit1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white hover:border-neutral-700 transition-colors text-xs font-semibold"
+              >
+                <Facebook className="w-3.5 h-3.5 text-[#1877F2]" />
+                <span>Facebook</span>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white hover:border-neutral-700 transition-colors text-xs font-semibold"
+              >
+                <Instagram className="w-3.5 h-3.5 text-[#E4405F]" />
+                <span>Instagram</span>
+              </a>
             </div>
           </div>
 
@@ -235,8 +257,8 @@ export function Footer() {
         <div className="mt-10 border-t border-neutral-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500">
           <p>© {new Date().getFullYear()} ONE OUTFIT BANGLADESH. All Rights Reserved.</p>
           <div className="flex gap-6">
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-white">Facebook</a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white">Instagram</a>
+            <a href="https://www.facebook.com/OneOutfit1" target="_blank" rel="noopener noreferrer" className="hover:text-white">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">Instagram</a>
             <Link to="/shop" className="hover:text-white">Privacy Policy</Link>
             <Link to="/shop" className="hover:text-white">Terms of Sale</Link>
           </div>

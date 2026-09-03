@@ -18,6 +18,7 @@ import { Account } from './pages/Account';
 import { AdminDashboard } from './pages/Admin';
 import { CartProvider } from './context/CartContext';
 import { LanguageProvider } from './context/LanguageContext';
+import { AdminProvider } from './context/AdminContext';
 import { AnnouncementBar } from './components/AnnouncementBar';
 import { SocialCommerceWidget } from './components/SocialCommerceWidget';
 
@@ -63,25 +64,27 @@ function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <LanguageProvider>
-      <CartProvider>
-        <Router>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="/category/:categorySlug" element={<Shop />} />
-              <Route path="/products/:slug" element={<ProductDetails />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/order/success/:id" element={<OrderSuccess />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Login />} /> {/* Fallback to login for now */}
-              <Route path="/account/*" element={<Account />} />
-              <Route path="/admin/*" element={<AdminDashboard />} />
-            </Routes>
-          </Layout>
-        </Router>
-      </CartProvider>
+      <AdminProvider>
+        <CartProvider>
+          <Router>
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/shop" element={<Shop />} />
+                <Route path="/category/:categorySlug" element={<Shop />} />
+                <Route path="/products/:slug" element={<ProductDetails />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/order/success/:id" element={<OrderSuccess />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Login />} /> {/* Fallback to login for now */}
+                <Route path="/account/*" element={<Account />} />
+                <Route path="/admin/*" element={<AdminDashboard />} />
+              </Routes>
+            </Layout>
+          </Router>
+        </CartProvider>
+      </AdminProvider>
     </LanguageProvider>
   );
 }

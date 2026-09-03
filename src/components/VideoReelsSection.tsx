@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Pause, Volume2, VolumeX, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, ShoppingBag, ArrowRight, Facebook } from 'lucide-react';
 import { products } from '../products';
 import { QuickViewModal } from './QuickViewModal';
 import { Product } from '../types';
@@ -197,12 +197,14 @@ export function VideoReelsSection() {
             </div>
           </div>
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/OneOutfit1"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg text-xs font-bold uppercase tracking-wider transition-colors border border-neutral-700"
           >
-            Visit Facebook Page <ArrowRight className="w-3.5 h-3.5" />
+            <Facebook className="w-4 h-4 text-[#1877F2]" />
+            <span>Visit @OneOutfit1</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>
