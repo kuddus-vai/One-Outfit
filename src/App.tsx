@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -21,17 +21,34 @@ import { LanguageProvider } from './context/LanguageContext';
 import { AnnouncementBar } from './components/AnnouncementBar';
 import { SocialCommerceWidget } from './components/SocialCommerceWidget';
 
+// Auto scroll to top on page transition
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [pathname]);
+
+  return null;
+}
+
 // Helper component to conditionally hide Header/Footer on Admin routes
 function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
 
   if (isAdminRoute) {
-    return <>{children}</>;
+    return (
+      <>
+        <ScrollToTop />
+        {children}
+      </>
+    );
   }
 
   return (
     <div className="min-h-screen bg-white flex flex-col font-sans relative">
+      <ScrollToTop />
       <AnnouncementBar />
       <Header />
       <main className="flex-grow">

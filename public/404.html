@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>One Outfit — Redirecting...</title>
+    <script>
+      // Single-Page Application fallback redirect for GitHub Pages
+      (function () {
+        var path = window.location.pathname;
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        var segments = path.split('/').filter(Boolean);
+        var isGitHubPagesRepo = window.location.hostname.endsWith('github.io') && segments.length > 0;
+        var repoName = isGitHubPagesRepo ? '/' + segments[0] : '';
+        var subRoute = isGitHubPagesRepo ? '/' + segments.slice(1).join('/') : path;
+
+        if (!subRoute || subRoute === '/') {
+          subRoute = '';
+        }
+
+        var targetUrl = window.location.origin + repoName + '/#' + subRoute + search + hash;
+        window.location.replace(targetUrl);
+      })();
+    </script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background: #000;
+        color: #fff;
+      }
+      .loader {
+        text-align: center;
+      }
+      .logo {
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+      .desc {
+        color: #888;
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="logo">ONE OUTFIT</div>
+      <div class="desc">Redirecting to page...</div>
+    </div>
+  </body>
+</html>
